@@ -34,12 +34,12 @@ class ApiAuth {
                 $requestUserData = unserialize($searilizerUserData);
                 $request['access_token'] = $headers['Authorization'];
                 $request['token_data'] = $requestUserData;
-                $check_user_active = User::where('id', $requestUserData['user_id'])->first();
+                $check_user_active = User::where('id', $requestUserData['id'])->first();
                 if ($check_user_active) {
                     if (!$check_user_active['is_verified']) {
                         throw new Exception(\Illuminate\Support\Facades\Lang::get('api_error.account_not_verified'), 401);
                     }
-                    if (!$check_user_active['stauts']) {
+                    if (!$check_user_active['status']) {
                         throw new Exception(\Illuminate\Support\Facades\Lang::get('api_error.account_blocked'), 401);
                     }
                     $request['requested_user'] = $check_user_active->toArray();

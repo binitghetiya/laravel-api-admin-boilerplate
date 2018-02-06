@@ -15,6 +15,10 @@ Route::get('user/email-verify', 'UserController@email_verify');
 Route::group(['prefix' => 'api', 'middleware' => ['client_check']], function () {
     Route::post('user/register', 'UserController@register');
     Route::post('user/login', 'UserController@login');
+
+    Route::group(['prefix' => '', 'middleware' => ['api_auth']], function () {
+        Route::get('user/me', 'UserController@user_get');
+    });
 });
 
 

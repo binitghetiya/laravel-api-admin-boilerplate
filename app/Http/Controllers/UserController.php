@@ -7,13 +7,20 @@ use App\Models\User;
 use Illuminate\Support\Facades\Lang;
 
 class UserController extends Controller {
-    
+
+    public function user_get(Request $request) {
+        $request['user_id'] = $request['requested_user']['id'];
+        $obj = new User();
+        $result = $obj->userGet($request);
+        return $result;
+    }
+
     public function admin_user_edit(Request $request) {
         $obj = new User();
         $result = $obj->userEdit($request);
         return $result;
     }
-    
+
     public function admin_user_get(Request $request) {
         $obj = new User();
         $result = $obj->userGet($request);

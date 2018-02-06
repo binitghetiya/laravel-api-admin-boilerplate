@@ -61,8 +61,9 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=noreplay@laravelapiadminboilerplate.com
 MAIL_FROM_NAME=LaravelApiAdminBoilerplate
 ```
-
+>**php artisan serve** to run your project 
 >Everythig is setup and you are good to go now. Happy Coding :)
+
 
 # Other Information about setup
 ## Middlewares
@@ -74,8 +75,8 @@ MAIL_FROM_NAME=LaravelApiAdminBoilerplate
 ## Routes
 ### Login
 ```
-> http:localhost:8000/api/user/login   
-> Params: email, password
+> POST : http:localhost:8000/api/user/login   
+> Payload: email, password
 > Response : 
 {
     "code": 200,
@@ -90,6 +91,35 @@ MAIL_FROM_NAME=LaravelApiAdminBoilerplate
         "updated_at": "2018-02-06 08:49:14"
     },
     "access_token": "eyJpdiI6InRoXC9vN2V4OHJkR21PRGtWeHE1UzhRPT0iLCJ2YWx1ZSI6InVoV0czOXFqQXlVMzVid21yWFFhaHpVRDZEUm44aUVHRG5VMDNCTWpzT1FKMFZpQkZvMFFsTzlja0R3RnVUdWdhbWRXK1U1alNqQlBiMGgzb3lmNGpKaWRoc2JQUlwvXC9mRERqSkJFOU9tR1BtRlNIeUVkSGpaTUZGaHlwS0htR3dDbGlMV3l0a01GMFVrTlwvRGtsMnhLc0hvaDZUZGpGbHBnXC9QQ1ZUUm5KS1M4cGp6MG1nalFxcVwvVmc3c3N0WWJHV3JyalZwXC9MemVHTDRpNnhqNjlIWk43Yzd6YTdaeXhvM0x0Q3pOWnpvVnM9IiwibWFjIjoiZmY2MWM1NzQxODU5NzZiMmU3NDAwODZkODVkZmY4ZjcwYjljNGMxNTU3MTI1NmMxYTI1Mzc1NGFlMDJiNDkwNSJ9"
+}
+```
+### Get user
+```
+> GET : http:localhost:8000/api/user/me   
+> Headers : 
+        X-CLIENT-ID (from application table) , 
+        X-CLIENT-SECRET (from application table) , 
+        Authorization (access token)
+> Response : 
+{
+    "code": 200,
+    "data": {
+        "id": 12,
+        "name": "User",
+        "email": "user@gmail.com",
+        "unique_id": "5a796c03a2d6e",
+        "is_verified": 1,
+        "status": 1,
+        "created_at": "2018-02-06 08:49:07",
+        "updated_at": "2018-02-06 08:49:14"
+    }
+}
+```
+### Success Response
+```
+{
+    "code": 200,
+    "data": "object or array"
 }
 ```
 ### Error Response
