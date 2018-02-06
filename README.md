@@ -61,7 +61,7 @@ MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=noreplay@laravelapiadminboilerplate.com
 MAIL_FROM_NAME=LaravelApiAdminBoilerplate
 ```
->**php artisan serve** to run your project 
+`php artisan serve` to run your project 
 >Everythig is setup and you are good to go now. Happy Coding :)
 
 
