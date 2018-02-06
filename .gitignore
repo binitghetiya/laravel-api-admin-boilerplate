@@ -1,0 +1,16 @@
+/node_modules
+/public/hot
+/public/storage
+/public/bower_components
+/storage/*.key
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+npm-debug.log
+.env
+/nbproject/private/
+public/assets/
+/nbproject
+composer.lock

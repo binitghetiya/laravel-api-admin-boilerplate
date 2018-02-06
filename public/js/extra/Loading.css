@@ -1,0 +1,67 @@
+#LoadingDivLayer
+{
+    width:100%;
+}
+
+.LoadingDivLayerClass
+{
+    position:absolute;
+    margin:0;
+    padding:0;
+    z-index:2147483640;
+    top:0px;
+    left:0px;
+    border:none;
+    overflow:hidden;
+    display:none;
+}
+
+.LoadingDivLayerClass .LoadingForeground
+{
+    position:relative;
+    z-index:101;
+    width:100%;
+}
+
+.LoadingDivLayerClass .LoadingForeground .LoadingBox
+{
+    position:relative;
+    width:69px !important;
+    height:69px !important;
+    text-align:center;
+    margin:0;
+    padding:0;
+    line-height:69px;
+    border-radius:8px;
+    -webkit-border-radius:8px;
+    -moz-border-radius:8px;
+    background:rgba(0,0,0,.85);
+    filter:progid: DXImageTransform.Microsoft.gradient(startColorstr=#00000000CC, endColorstr=#000000CC);
+}
+
+.LoadingDivLayerClass .LoadingForeground .LoadingBox img
+{
+    position:relative;
+    width:29px;
+    height:29px;
+    border:none;
+    outline:none;
+    margin:18px auto;
+    padding:0;
+}
+
+.LoadingDivLayerClass .LoadingBackground
+{
+    position:absolute;
+    margin:0;
+    padding:0;
+    z-index:100;
+    width:100%;
+    top:0px;
+    left:0px;
+    border:none;
+    overflow:hidden;
+    background-color:#000;
+    filter:opacity(alpha=30);
+    opacity:0.3;
+}
