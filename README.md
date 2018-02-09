@@ -11,7 +11,6 @@ or from **Download Zip**
 ```
 https://github.com/binitghetiya/laravel-api-admin-boilerplate 
 ```
-
 ### Project Setup
 Once you clone or download project go into you folder
 
@@ -65,7 +64,12 @@ MAIL_FROM_NAME=LaravelApiAdminBoilerplate
 >Everythig is setup and you are good to go now. Happy Coding :)
 
 
+
 # Other Information about setup
+## Git/Bitbucket Setup
+```
+> rm -rf .git  (Remove git folder so you can use your own git/bitbucket)
+```
 ## Middlewares
 ```
 > client_check (ClientCheck)  this will check every request comes throw application clients.
