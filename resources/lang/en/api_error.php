@@ -28,4 +28,5 @@ return [
     'email_verified' => 'Your email has been verified.',
     'account_blocked' => 'Your account is blocked by Admin.',
     'access_token_required' => 'You must provide access token to use this API.',
+    'only_admin_login' => 'Only Admin can login.',
 ];

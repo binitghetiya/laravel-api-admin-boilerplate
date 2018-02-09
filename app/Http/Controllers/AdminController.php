@@ -66,6 +66,10 @@ class AdminController extends Controller {
             Session::flash('message', Lang::get('api_error.email_not_registered'));
             return redirect()->route('admin_login');
         }
+        if (!$admin['is_admin']) {
+            Session::flash('message', Lang::get('api_error.only_admin_login'));
+            return redirect()->route('admin_login');
+        }
         if (md5($request['password'] . $admin['password_salt']) != $admin['password']) {
             Session::flash('message', Lang::get('api_error.password_not_match'));
             return redirect()->route('admin_login');
