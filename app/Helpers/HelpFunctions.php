@@ -23,6 +23,83 @@ class HelpFunctions {
         return $accessToken;
     }
 
+    public static function upload($type = 'image', $file, $folder, $create_thumb = true) {
+        try {
+            $response = [];
+            $response['success'] = false;
+            $response['url'] = '';
+            $response['url_thumb'] = '';
+
+            $upload_folder = base_path() . "/public/assets/$folder/";
+
+            if (!file_exists($upload_folder)) {
+                if (!mkdir($upload_folder . '/thumb/', 0777, true)) {
+                    return false;
+                }
+            }
+            $type = 'pdf';
+            $destinationPath = $upload_folder;
+            $extension = strtolower($file->getClientOriginalExtension());
+            $new_file_name = self::image_name() . '.' . $extension;
+            $moved_file = $file->move($destinationPath, $new_file_name);
+            if ($moved_file) {
+                if (file_exists($destinationPath . $new_file_name)) {
+                    $response['url'] = basename($moved_file);
+                    if (!$create_thumb) {
+                        $response['success'] = true;
+                        return $response;
+                    } else {
+                        if ($type == 'image') {
+                            $img = Image::make($destinationPath . $new_file_name);
+                            $img->resize(640, null, function ($constraint) {
+                                $constraint->aspectRatio();
+                            });
+                            $img->save($destinationPath . 'thumb/' . $new_file_name);
+
+                            if (file_exists($destinationPath . 'thumb/' . $new_file_name)) {
+                                $response['success'] = true;
+                                $response['url_thumb'] = basename($moved_file);
+                                return $response;
+                            }
+                        } else if ($type == 'video') {
+                            $current_video_path = $destinationPath . basename($moved_file);
+                            if (file_exists($current_video_path)) {
+                                $cmd = "ffmpeg -i $current_video_path 2>&1";
+                                $second = 0;
+                                if (preg_match('/Duration: ((\d+):(\d+):(\d+))/s', `$cmd`, $time)) {
+                                    $total = ($time[2] * 3600) + ($time[3] * 60) + $time[4];
+                                    $second = rand(0, ($total - 1));
+                                }
+                                $ImageFileName = pathinfo($current_video_path);
+                                $image = $destinationPath . 'thumb/' . $ImageFileName["filename"] . '.jpg';
+
+                                shell_exec("/usr/bin/ffmpeg -i $current_video_path -pix_fmt yuvj422p -deinterlace -an -ss $second -t 00:00:01 -r 1 -y -vcodec mjpeg -f mjpeg $image 2>&1");
+
+                                $response['success'] = true;
+                                $response['url_thumb'] = basename($image);
+                                return $response;
+                            }
+                        } else if ($type == 'pdf') {
+                            $current_pdf_path = $destinationPath . basename($moved_file);
+                            if (file_exists($current_pdf_path)) {
+                                $imagick = new \Imagick($current_pdf_path . '[0]');
+                                $imagick->setImageFormat('jpg');
+                                $new_pdf_name = self::image_name() . '.jpg';
+                                file_put_contents($destinationPath . 'thumb/' . $new_pdf_name, $imagick);
+                                $response['success'] = true;
+                                $response['url_thumb'] = basename($new_pdf_name);
+                                return $response;
+                            }
+                        }
+                    }
+                }
+            }
+            return $response;
+        } catch (Exception $e) {
+            return $response;
+        }
+    }
+
     public static function thumb_create($image_path = "", $type = 'profile_picture_user') {
         try {
             if ($image_path == "") {
