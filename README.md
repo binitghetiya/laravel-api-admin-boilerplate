@@ -20,9 +20,11 @@ Once you clone or download project go into you folder
 ```
 > composer install   (this will install all php library dependencies)
 > bower install     (this will install all Admin panel library dependencies)
+> npm install     (this will install all laravel mix dependencies)
 > php artisan key:generate (this will create a unique key for your peoject and encrypt your access token using this salt)
 > chmod -R 755 storage (write permission to generate and store chache views, error logs and system files)
 > chmod -R 755 bootstrap (write permission to cache config files)
+> npm run dev (To generate all assets files for Admin UI)
 ```
 
 ### Database Config Setup
