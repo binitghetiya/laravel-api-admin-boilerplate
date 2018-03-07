@@ -35,7 +35,12 @@
         @include('partial.footer')
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.8.1/jquery.timepicker.js" type="text/javascript"></script>
-    <script src="{{config('app.url')}}/js/include/all_footer_angular.js" type="text/javascript"></script>
+    <script src="{{config('app.url')}}/js/include/all_footer_angular.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dropdown-toggle').dropdown();
+        });
+    </script>
 
 </body>
 </html>
