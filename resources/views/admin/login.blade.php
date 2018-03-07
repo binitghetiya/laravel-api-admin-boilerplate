@@ -3,11 +3,8 @@
         <meta charset="UTF-8">
         <title>{{ "Admin Login" }}</title>
         <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
-        <!--<link href="{{config('app.url')}}/bower_components/AdminLTE/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-        <!--<link href="{{config('app.url')}}/bower_components/AdminLTE/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />-->
-        <!--<link href="{{config('app.url')}}/bower_components/AdminLTE/dist/css/skins/skin-blue.min.css" rel="stylesheet" type="text/css" />-->
         <link href="{{config('app.url')}}/css/include/all_normal.css" rel="stylesheet" type="text/css" />
     </head>
     <body class="hold-transition login-page">
@@ -41,8 +38,5 @@
                 </form>
             </div>
         </div>
-        <!--<script src="{{config('app.url')}}/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js"></script>-->
-        <!--<script src="{{config('app.url')}}/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>-->
-        <!--<script src="{{config('app.url')}}/bower_components/AdminLTE/dist/js/app.min.js" type="text/javascript"></script>-->
         <script src="{{config('app.url')}}/js/include/all_normal.js" type="text/javascript"></script>
     </body></html>

@@ -21,7 +21,7 @@ mix
         .copyDirectory('public/bower_components/AdminLTE/bootstrap/fonts', 'public/css/fonts')
         .combine([
             'public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js',
-            'public/bower_components/bootstrap/dist/js/bootstrap.min.js',
+            'public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js',
             'public/bower_components/AdminLTE/dist/js/app.min.js',
         ], 'public/js/include/all_normal.js');
 /*normal page CSS ends*/
@@ -40,7 +40,7 @@ mix
         .copyDirectory('public/bower_components/AdminLTE/bootstrap/fonts', 'public/css/fonts')
         .combine([
             'public/bower_components/AdminLTE/plugins/jQuery/jquery-2.2.3.min.js',
-            'public/bower_components/bootstrap/dist/js/bootstrap.min.js',
+            'public/bower_components/AdminLTE/bootstrap/js/bootstrap.min.js',
             'public/bower_components/angular/angular.js',
             'public/js/extra/Loading.js',
         ], 'public/js/include/all_head_angular.js')
